@@ -1,0 +1,1 @@
+export const getSnackBar = state => state.ui.snackBar;
