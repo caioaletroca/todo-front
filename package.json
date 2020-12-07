@@ -1,0 +1,63 @@
+{
+  "name": "todo-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --config config/webpack.serve.js --env=",
+    "build": "webpack --config config/webpack.build.js --env="
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caioaletroca/todo-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caioaletroca/todo-front/issues"
+  },
+  "homepage": "https://github.com/caioaletroca/todo-front#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "chalk": "^2.4.2",
+    "copy-webpack-plugin": "^6.3.2",
+    "css-loader": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.3.2",
+    "minimist": "^1.2.5",
+    "node-sass": "^5.0.0",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "sass-loader": "^10.1.0",
+    "webpack": "^4.44.2",
+    "webpack-bundle-analyzer": "^4.2.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.4.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@material-ui/core": "^4.11.2",
+    "@reduxjs/toolkit": "^1.5.0",
+    "connected-react-router": "^6.8.0",
+    "formik": "^2.2.5",
+    "history": "^4.10.1",
+    "notistack": "^1.0.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.1.3",
+    "saga-manager": "^1.0.8",
+    "yup": "^0.32.3"
+  }
+}
