@@ -19,6 +19,8 @@ Após todas as dependências instaladas, execute o comando abaixo:
 npm start
 ```
 
+Você pode acessar o projeto pelo endereço <http://localhost:3000>.
+
 ## Créditos
 
 Todo o desenvolvimento foi feito para um trabalho universitário do Curso de Engenharia de Controle e Automação , para a matéria Sistema de Computacionais na UNESP Sorocaba.
