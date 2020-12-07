@@ -3,8 +3,12 @@ import { combineReducers } from "redux";
 import sessionStorage from "redux-persist/lib/storage/session";
 import { persistCombineReducers } from "redux-persist";
 
+// Entities
+import { auth, authAuthenticateState, authRegisterState } from './entities/authReducers';
+import { userData, userDataGetState, userDataPutState } from './entities/userDataActions';
+import { todos, todoGetState, todoPostState, todoPutState } from './entities/todoReducers';
+
 // UI
-import { auth } from './ui/authReducers';
 import { snackBar } from './ui/snackBarReducers';
 
 const entitiesCache = {
@@ -15,9 +19,18 @@ const entitiesCache = {
 export default (history) => combineReducers({
     entities: persistCombineReducers(entitiesCache, {
         auth,
+        userData,
+        todos
     }),
     ui: combineReducers({
-        snackBar   
+        snackBar,
+        authAuthenticateState,
+        authRegisterState,
+        userDataGetState,
+        userDataPutState,
+        todoGetState,
+        todoPostState,
+        todoPutState
     }),
     router: connectRouter(history)
 })

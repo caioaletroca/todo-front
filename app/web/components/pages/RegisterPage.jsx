@@ -12,13 +12,13 @@ import TextField from 'web/components/commons/TextField';
 import { Box, makeStyles, Paper, Typography } from '@material-ui/core';
 
 // Schemas
-import { loginSchema } from 'core/schemas/userSchema';
+import { registerSchema } from 'core/schemas/userSchema';
 
 // Actions
 import { authActions } from 'core/actions';
 
 // Selectors
-import { getAuthAuthenticateState } from 'core/selectors';
+import { getAuthRegisterState } from 'core/selectors';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -32,28 +32,33 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const initialValues = {
+    name: "Caio Troti",
     login: 'caio.troti',
     password: 'Teste123',
 }
 
-export default function LoginPage () {
+export default function RegisterPage () {
     const dispatch = useDispatch();
     const Auth = {
-        authenticate: bindActionCreators(authActions.authenticate, dispatch)
+        register: bindActionCreators(authActions.register, dispatch)
     }
-    const { loading } = useSelector(getAuthAuthenticateState);
+    const { loading } = useSelector(getAuthRegisterState);
 
-    const handleSubmit = values => Auth.authenticate.fetch(values);
+    const handleSubmit = values => Auth.register.fetch(values);
 
     const classes = useStyles();
 
     return (
         <div className='content'>
             <div className='view'>
-                <Paper className={classes.paper}>
-                    <Typography>ToDo UNESP</Typography>
+                <Paper className={classes.paper} elevation={5}>
+                    <Typography
+                        variant='h5'
+                        gutterBottom>
+                        Cadastre-se
+                    </Typography>
                     <Formik
-                        validationSchema={loginSchema}
+                        validationSchema={registerSchema}
                         initialValues={initialValues}
                         validateOnBlur
                         onSubmit={handleSubmit}>
@@ -66,6 +71,19 @@ export default function LoginPage () {
                             handleSubmit
                         }) => (
                             <form noValidate onSubmit={handleSubmit}>
+                                <TextField
+                                    name='name'
+                                    label='Nome Completo'
+                                    value={values.name}
+                                    touched={touched}
+                                    errors={errors}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    variant='outlined'
+                                    margin='normal'
+                                    fullWidth
+                                    required
+                                />
                                 <TextField
                                     name='login'
                                     label='Usuário'
@@ -103,7 +121,7 @@ export default function LoginPage () {
                                         color='primary'
                                         variant='contained'
                                         loading={loading}>
-                                        Entrar
+                                        Cadastrar
                                     </Button>
                                 </Box>
                             </form>
@@ -111,7 +129,7 @@ export default function LoginPage () {
                     </Formik>
                     <Box
                         marginTop='2em'>
-                        <Link to='/register'>Cadastre-se</Link>
+                        <Link to='/login'>Já é cadastrado? Entre agora.</Link>
                     </Box>
                 </Paper>
             </div>

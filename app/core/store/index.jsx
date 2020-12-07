@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
 import { routerMiddleware } from "connected-react-router";
 import { persistStore } from "redux-persist";
 import logger from "redux-logger";
@@ -6,14 +7,20 @@ import logger from "redux-logger";
 // Api
 import history from "core/api/history";
 
+// Sagas
+import rootSagas from 'core/sagas';
+
 // Reducers
 import rootReducers from "core/reducers";
 
 // DevTools
 let composeEnhancers = compose;
 
+// Create saga middleware
+const sagaMiddleware = createSagaMiddleware();
+
 // Create middleware list
-const middlewares = [routerMiddleware(history)];
+const middlewares = [routerMiddleware(history), sagaMiddleware];
 
 // Development conditionals
 if (env.APP_ENV === "local" || env.APP_ENV === 'dev' || env.APP_ENV === 'hml') {
@@ -29,6 +36,9 @@ const composed = composeEnhancers(applyMiddleware(...middlewares));
 
 // Create the store
 const store = createStore(rootReducers(history), undefined, composed);
+
+// Run saga
+sagaMiddleware.run(rootSagas);
 
 // Fix hot reload
 if (module.hot) {
