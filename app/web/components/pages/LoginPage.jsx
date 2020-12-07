@@ -51,7 +51,11 @@ export default function LoginPage () {
         <div className='content'>
             <div className='view'>
                 <Paper className={classes.paper}>
-                    <Typography>ToDo UNESP</Typography>
+                    <Typography
+                        variant='h4'
+                        gutterBottom>
+                        ToDos UNESP
+                    </Typography>
                     <Formik
                         validationSchema={loginSchema}
                         initialValues={initialValues}

@@ -1,0 +1,1 @@
+export const getSidebar = state => state.ui.sidebar;

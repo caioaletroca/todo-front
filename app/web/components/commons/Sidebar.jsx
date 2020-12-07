@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Styles
@@ -8,6 +8,10 @@ import { grey } from '@material-ui/core/colors';
 
 // Actions
 import { push as pushAction } from 'connected-react-router';
+import { sidebarActions } from 'core/actions';
+
+// Selectors
+import { getSidebar } from 'core/selectors';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -18,7 +22,12 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: grey[300],
         zIndex: 10,
         boxShadow: "1px 0px 10px 0px rgba(0,0,0,0.75)",
-	    transition: "left 200ms ease-in",
+        transition: "left 200ms ease-in",
+        
+        [theme.breakpoints.down("sm")]: {
+            position: 'absolute',
+            left: props => props.sidebar ? 0 : -300
+        }
     },
     item: {
         display: 'flex',
@@ -63,10 +72,17 @@ export function SidebarItem ({ icon, label, path, onClick }) {
 export default function Sidebar () {
     const dispatch = useDispatch();
     const push = bindActionCreators(pushAction, dispatch);
+    const Sidebar = {
+        set: bindActionCreators(sidebarActions.set, dispatch)
+    }
+    const sidebar = useSelector(getSidebar)
 
-    const handleClick = path => push(path)
+    const handleClick = path => {
+        push(path);
+        Sidebar.set(false);
+    }
 
-    const classes = useStyles();
+    const classes = useStyles({ sidebar });
 
     const items = [
         {

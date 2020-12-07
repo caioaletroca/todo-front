@@ -8,7 +8,7 @@ import NewTodoPaper from './NewTodoPaper';
 import TodoItem from './TodoItem';
 
 // Styles
-import { Box, CircularProgress, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Paper, Typography } from '@material-ui/core';
+import { Box, CircularProgress, List, Paper } from '@material-ui/core';
 
 // Actions
 import { todoActions, userDataActions } from 'core/actions';

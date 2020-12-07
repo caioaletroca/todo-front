@@ -1,7 +1,14 @@
 .view {
     display: flex;
     flex-direction: column;
+    overflow-x: auto;
     width: 100%;
     padding: 2em;
     background-color: #e6e6e6;
+}
+
+@media only screen and (max-width: 600px) {
+    .view {
+        padding: 1em 0.5em;
+    }
 }

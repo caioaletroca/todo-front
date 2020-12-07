@@ -23,38 +23,36 @@ import theme from "web/components/styles";
 
 export default function App () {
     return (
-        <div className="app">
-            <ThemeProvider theme={theme}>
-                <SnackbarProvider>
-                    <Notifier />
-                    <Switch>
-                        <Route
-                            exact
-                            path="/"
-                            component={HomePage}
-                        />
-                        <Route
-                            exact
-                            path="/login"
-                            component={LoginPage}
-                        />
-                        <Route
-                            exact
-                            path="/logout"
-                            component={LogoutPage}
-                        />
-                        <Route
-                            exact
-                            path="/register"
-                            component={RegisterPage}
-                        />
-                        <Page
-                            path="/dashboard"
-                            render={(...props) => <DashboardPage {...props} />}
-                        />
-                    </Switch>
-                </SnackbarProvider>
-            </ThemeProvider>
-        </div>
+        <ThemeProvider theme={theme}>
+            <SnackbarProvider>
+                <Notifier />
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        component={HomePage}
+                    />
+                    <Route
+                        exact
+                        path="/login"
+                        component={LoginPage}
+                    />
+                    <Route
+                        exact
+                        path="/logout"
+                        component={LogoutPage}
+                    />
+                    <Route
+                        exact
+                        path="/register"
+                        component={RegisterPage}
+                    />
+                    <Page
+                        path="/dashboard"
+                        render={(...props) => <DashboardPage {...props} />}
+                    />
+                </Switch>
+            </SnackbarProvider>
+        </ThemeProvider>
     )
 }

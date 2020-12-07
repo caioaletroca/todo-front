@@ -1,5 +1,7 @@
-import { List, ListItem, ListItemText, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+
+// Styles
+import { List, ListItem, ListItemText, makeStyles, Paper, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     paper: {

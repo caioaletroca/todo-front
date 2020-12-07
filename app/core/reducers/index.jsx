@@ -10,6 +10,7 @@ import { todos, todoGetState, todoPostState, todoPutState } from './entities/tod
 
 // UI
 import { snackBar } from './ui/snackBarReducers';
+import { sidebar } from './ui/sidebarReducers';
 
 const entitiesCache = {
     key: "entities",
@@ -24,6 +25,7 @@ export default (history) => combineReducers({
     }),
     ui: combineReducers({
         snackBar,
+        sidebar,
         authAuthenticateState,
         authRegisterState,
         userDataGetState,

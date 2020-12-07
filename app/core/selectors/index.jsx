@@ -5,3 +5,4 @@ export * from './entities/todoSelectors';
 
 // UI
 export * from './ui/snackBarSelectors';
+export * from './ui/sidebarSelectors';
