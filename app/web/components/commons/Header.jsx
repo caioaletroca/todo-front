@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexDirection: 'row',
-        padding: theme.spacing(2)
+        padding: theme.spacing(2),
     },
     spacing: {
         margin: 'auto',
