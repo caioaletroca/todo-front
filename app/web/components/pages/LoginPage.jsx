@@ -32,8 +32,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const initialValues = {
-    login: 'caio.troti',
-    password: 'Teste123',
+    login: '',
+    password: '',
 }
 
 export default function LoginPage () {

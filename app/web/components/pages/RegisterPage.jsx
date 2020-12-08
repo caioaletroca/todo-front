@@ -32,9 +32,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const initialValues = {
-    name: "Caio Troti",
-    login: 'caio.troti',
-    password: 'Teste123',
+    name: "",
+    login: '',
+    password: '',
 }
 
 export default function RegisterPage () {
